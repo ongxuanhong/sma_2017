@@ -1,1 +1,1 @@
-# sma_2017
+https://github.com/SMA2017/BasicMachineLearning
