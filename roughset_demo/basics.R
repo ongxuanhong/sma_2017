@@ -1,8 +1,16 @@
 library(RoughSets)
 
-patients <- read.csv("patients.csv")
-decision.table <- SF.asDecisionTable(dataset = patients, decision.attr = 4, indx.nominal = c(1:4))
+# get data file name argument
+args <- commandArgs(TRUE)
+data_name <- as.character(args[1])
 
+# loading data to data frame
+loaded_data <- read.csv(data_name)
+
+# convert to decision table
+decision.table <- SF.asDecisionTable(dataset = loaded_data, decision.attr = 4, indx.nominal = c(1:4))
+
+# choose index of features
 P <- c(2,3)
 
 ####### Perform indiscernibility relation #######
@@ -14,11 +22,11 @@ roughset <- BC.LU.approximation.RST(decision.table, IND)
 ####### Determine the positive region ######
 region <- BC.positive.reg.RST(decision.table, roughset) 
 
-print("Indiscernibility Relation:")
+cat("###  Indiscernibility Relation ###\n")
 print(IND)
 
-print("Lower and Upper Approximations:")
+cat("\n\n\n### Lower and Upper Approximations ###\n")
 print(roughset)
 
-print("Regions:")
+cat("\n\n\n### Regions ###\n")
 print(region)
