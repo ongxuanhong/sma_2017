@@ -1,0 +1,10 @@
+(Obj.s),Temperature,Hemoglobin,Blood-Pressure,Oxygen-Saturation,Comfort
+1,low,fair,low,fair,low
+2,low,fair,normal,poor,low
+3,normal,good,low,good,low
+4,normal,good,low,good,medium
+5,low,good,normal,good,medium
+6,low,good,normal,fair,medium
+7,normal,fair,normal,good,medium
+8,normal,poor,high,good,very-low
+9,high,good,high,fair,very-low
