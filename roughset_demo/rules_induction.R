@@ -11,3 +11,6 @@ loaded_data <-SF.asDecisionTable(loaded_data, decision.attr = 5, indx.nominal = 
 
 rules <- RI.LEM2Rules.RST(loaded_data)
 rules
+
+test <- SF.asDecisionTable(loaded_data[3:4, -ncol(loaded_data)])
+predict(rules, test)
