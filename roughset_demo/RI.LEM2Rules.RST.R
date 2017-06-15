@@ -35,4 +35,7 @@ pred.vals <- predict(rules, data.tst)
 
 ## checking the accuracy of predictions:
 #mean(pred.vals == true.classes)
-confusionMatrix(as.factor(pred.vals$predictions), as.factor(true.classes))
+result <- confusionMatrix(as.factor(pred.vals$predictions), as.factor(true.classes))
+result
+result$byClass
+
