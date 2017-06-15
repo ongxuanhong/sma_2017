@@ -13,7 +13,7 @@ wine.data
 
 ## Split the data into a training set and a test set,
 ## 60\% for training and 40\% for testing:
-idx <- round(0.6 * nrow(wine.data))
+idx <- round(0.8 * nrow(wine.data))
 wine.tra <-SF.asDecisionTable(wine.data[1:idx,],
                               decision.attr = 5)
 wine.tst <- SF.asDecisionTable(wine.data[(idx+1):nrow(wine.data), -ncol(wine.data)])
