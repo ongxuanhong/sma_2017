@@ -2,6 +2,7 @@
 ## Example
 ##############################################################
 library(RoughSets)
+library(caret)
 
 # get data file name argument
 args <- commandArgs(TRUE)
@@ -33,5 +34,5 @@ rules
 pred.vals <- predict(rules, data.tst)
 
 ## checking the accuracy of predictions:
-mean(pred.vals == true.classes)
-
+#mean(pred.vals == true.classes)
+confusionMatrix(as.factor(pred.vals$predictions), as.factor(true.classes))
