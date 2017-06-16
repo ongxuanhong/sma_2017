@@ -8,10 +8,14 @@ data_name <- as.character(args[1])
 loaded_data <- read.csv(data_name)
 
 # convert to decision table
-decision.table <- SF.asDecisionTable(dataset = loaded_data, decision.attr = 4, indx.nominal = c(1:4))
+decision.table <- SF.asDecisionTable(dataset = loaded_data, decision.attr = 5)
 
 # choose index of features
-P <- c(2,3)
+P <- c(1,2,3,4)
+
+## discretization:
+cut.values <- D.discretize.equal.intervals.RST(decision.table, nOfIntervals = 4)
+decision.table <- SF.applyDecTable(decision.table, cut.values)
 
 ####### Perform indiscernibility relation #######
 IND <- BC.IND.relation.RST(decision.table, feature.set = P)
